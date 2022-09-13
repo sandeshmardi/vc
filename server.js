@@ -21,6 +21,11 @@ server.use(Express.static(path.resolve(__dirname,"./build")))
 server.use(bodyparser())
 server.use('/user', require("./user"))
 server.use('/video', require("./video"))
+server.get("/", function(req,res){
+
+    res.sendFile(path.resolve(__dirname,"./build/index.html"))
+  
+  })
 
 
 server.listen( Port ,function(){
