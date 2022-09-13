@@ -7,6 +7,7 @@ const server = Express()
 const bodyparser = require("body-parser")
 const Port =  5000
 const dburl = "mongodb://localhost:27017/brilliodb1"
+const dburlserver = "mongodb+srv://dhanupandey:test12345@cluster0.s2usivc.mongodb.net/?retryWrites=true&w=majority"
 
 const corsOptions = {
     exposedHeaders: 'Authorization',
@@ -23,7 +24,7 @@ server.use('/video', require("./video"))
 
 
 server.listen( Port ,function(){
-    Mongoose.connect(dburl,function(error,client){
+    Mongoose.connect(dburlserver,function(error,client){
         if(error){
             console.log("Error in connecting to database", error)
         }
